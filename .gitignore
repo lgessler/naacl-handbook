@@ -1,8 +1,10 @@
+.DS_Store
 *.aux
 *.bcf
 *.idx
 *.xml
 *.out
+*.bbl
 handbook.aux
 handbook.bcf
 handbook.dep
@@ -17,9 +19,13 @@ handbook.bbl
 handbook.blg
 handbook.toc
 handbook*pdf
+handbook.bbl-SAVE-ERROR
+handbook.fdb_latexmk
+handbook.ilg
 *.pyc
 *.swp
 *.log
 data/tar
 #*#
 .#*
+.idea

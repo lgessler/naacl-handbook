@@ -143,24 +143,24 @@
 % \DeclareNameFormat{authorswithinitials}{%
 %   % name format that prints the list of authors with initals
 %   \ifcase\value{uniquename}%
-%     \usebibmacro{name:first-last}{#1}{#4}{#5}{#7}%
+%     \usebibmacro{name:given-family}{#1}{#4}{#5}{#7}%
 %   \or
 %     \ifuseprefix
-%       {\usebibmacro{name:first-last}{#1}{#4}{#5}{#8}}
-%       {\usebibmacro{name:first-last}{#1}{#4}{#6}{#8}}%
+%       {\usebibmacro{name:given-family}{#1}{#4}{#5}{#8}}
+%       {\usebibmacro{name:given-family}{#1}{#4}{#6}{#8}}%
 %   \or
-%     \usebibmacro{name:first-last}{#1}{#4}{#5}{#7}%
+%     \usebibmacro{name:given-family}{#1}{#4}{#5}{#7}%
 %   \fi
 %   \usebibmacro{name:andothers}}
 \DeclareNameFormat{authorswithinitials}{%
   \ifcase\value{uniquename}%
-    \usebibmacro{name:first-last}{}{\namepartgiven}{\namepartgiveni}{\namepartprefix}{\namepartsuffix}%
+    \usebibmacro{name:given-family}{}{\namepartgiven}{\namepartgiveni}{\namepartprefix}{\namepartsuffix}%
   \or
     \ifuseprefix
-      {\usebibmacro{name:first-last}{}{\namepartgiven}{\namepartgiveni}{\namepartprefix}{\namepartsuffixi}}
-      {\usebibmacro{name:first-last}{}{\namepartgiven}{\namepartgiveni}{\namepartprefixi}{\namepartsuffixi}}%
+      {\usebibmacro{name:given-family}{}{\namepartgiven}{\namepartgiveni}{\namepartprefix}{\namepartsuffixi}}
+      {\usebibmacro{name:given-family}{}{\namepartgiven}{\namepartgiveni}{\namepartprefixi}{\namepartsuffixi}}%
   \or
-    \usebibmacro{name:first-last}{}{\namepartgiven}{\namepartgiveni}{\namepartprefix}{\namepartsuffix}%
+    \usebibmacro{name:given-family}{}{\namepartgiven}{\namepartgiveni}{\namepartprefix}{\namepartsuffix}%
   \fi
   \usebibmacro{name:andothers}}
 
@@ -192,25 +192,25 @@
 % \DeclareNameFormat{fullauthornames}{%
 %   % name format that prints the list of authors with full author names
 %   \ifcase\value{uniquename}%
-%     \usebibmacro{name:first-last}{#1}{#3}{#5}{#7}%
+%     \usebibmacro{name:given-family}{#1}{#3}{#5}{#7}%
 %     \or
 %     \ifuseprefix
-%         {\usebibmacro{name:first-last}{#1}{#3}{#5}{#8}}
-%         {\usebibmacro{name:first-last}{#1}{#3}{#6}{#8}}%
+%         {\usebibmacro{name:given-family}{#1}{#3}{#5}{#8}}
+%         {\usebibmacro{name:given-family}{#1}{#3}{#6}{#8}}%
 %   \or
-%   \usebibmacro{name:first-last}{#1}{#3}{#5}{#7}%
+%   \usebibmacro{name:given-family}{#1}{#3}{#5}{#7}%
 %   \fi
 %   \usebibmacro{name:andothers}}
 \DeclareNameFormat{fullauthornames}{%
   % name format that prints the list of authors with full author names
   \ifcase\value{uniquename}%
-    \usebibmacro{name:first-last}{}{\namepartgiven}{\namepartfamily}{\namepartprefix}{\namepartsuffix}%
+    \usebibmacro{name:given-family}{}{\namepartgiven}{\namepartfamily}{\namepartprefix}{\namepartsuffix}%
   \or
     \ifuseprefix
-      {\usebibmacro{name:first-last}{}{\namepartgiven}{\namepartfamily}{\namepartprefix}{\namepartsuffixi}}
-      {\usebibmacro{name:first-last}{}{\namepartgiven}{\namepartfamily}{\namepartprefixi}{\namepartsuffixi}}%
+      {\usebibmacro{name:given-family}{}{\namepartgiven}{\namepartfamily}{\namepartprefix}{\namepartsuffixi}}
+      {\usebibmacro{name:given-family}{}{\namepartgiven}{\namepartfamily}{\namepartprefixi}{\namepartsuffixi}}%
   \or
-    \usebibmacro{name:first-last}{}{\namepartgiven}{\namepartfamily}{\namepartprefix}{\namepartsuffix}%
+    \usebibmacro{name:given-family}{}{\namepartgiven}{\namepartfamily}{\namepartprefix}{\namepartsuffix}%
   \fi
   \usebibmacro{name:andothers}}
 

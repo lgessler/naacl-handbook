@@ -140,42 +140,77 @@
 \newcommand{\ppp}[1]{pp. \pageref{#1start}--\pageref{#1end}}
 
 % the following code requires the biblatex package
+% \DeclareNameFormat{authorswithinitials}{%
+%   % name format that prints the list of authors with initals
+%   \ifcase\value{uniquename}%
+%     \usebibmacro{name:first-last}{#1}{#4}{#5}{#7}%
+%   \or
+%     \ifuseprefix
+%       {\usebibmacro{name:first-last}{#1}{#4}{#5}{#8}}
+%       {\usebibmacro{name:first-last}{#1}{#4}{#6}{#8}}%
+%   \or
+%     \usebibmacro{name:first-last}{#1}{#4}{#5}{#7}%
+%   \fi
+%   \usebibmacro{name:andothers}}
 \DeclareNameFormat{authorswithinitials}{%
-  % name format that prints the list of authors with initals
   \ifcase\value{uniquename}%
-    \usebibmacro{name:first-last}{#1}{#4}{#5}{#7}%
+    \usebibmacro{name:first-last}{#1}{\namepartgiven}{\namepartprefix}{\namepartfamily}{\namepartsuffix}%
   \or
     \ifuseprefix
-      {\usebibmacro{name:first-last}{#1}{#4}{#5}{#8}}
-      {\usebibmacro{name:first-last}{#1}{#4}{#6}{#8}}%
+      {\usebibmacro{name:first-last}{#1}{\namepartgiven}{\namepartprefix}{\namepartfamily}{\namepartsuffix}}
+      {\usebibmacro{name:first-last}{#1}{\namepartgiven}{\namepartfamily}{\namepartprefix}{\namepartsuffix}}%
   \or
-    \usebibmacro{name:first-last}{#1}{#4}{#5}{#7}%
+    \usebibmacro{name:first-last}{#1}{\namepartgiven}{\namepartprefix}{\namepartfamily}{\namepartsuffix}%
   \fi
   \usebibmacro{name:andothers}}
 
+% \DeclareNameFormat{authorlastnames}{%
+%   % name format that prints the list of author last names
+%   \ifcase\value{uniquename}%
+%     \usebibmacro{name:last}{#1}{#4}{#5}{#7}%
+%   \or
+%     \ifuseprefix
+%       {\usebibmacro{name:last}{#1}{#4}{#5}{#8}}
+%       {\usebibmacro{name:last}{#1}{#4}{#6}{#8}}%
+%   \or
+%     \usebibmacro{name:last}{#1}{#4}{#5}{#7}%
+%   \fi
+%   \usebibmacro{name:andothers}}
 \DeclareNameFormat{authorlastnames}{%
-  % name format that prints the list of author last names
-  \ifcase\value{uniquename}%
-    \usebibmacro{name:last}{#1}{#4}{#5}{#7}%
-  \or
-    \ifuseprefix
-      {\usebibmacro{name:last}{#1}{#4}{#5}{#8}}
-      {\usebibmacro{name:last}{#1}{#4}{#6}{#8}}%
-  \or
-    \usebibmacro{name:last}{#1}{#4}{#5}{#7}%
-  \fi
-  \usebibmacro{name:andothers}}
+% name format that prints the list of author last names
+\ifcase\value{uniquename}%
+  \usebibmacro{name:last}{#1}{\namepartfamily}{\namepartgiven}{\namepartprefix}{\namepartsuffix}%
+\or
+  \ifuseprefix
+    {\usebibmacro{name:last}{#1}{\namepartfamily}{\namepartgiven}{\namepartprefix}{\namepartsuffix}}
+    {\usebibmacro{name:last}{#1}{\namepartfamily}{\namepartgiven}{\namepartfamily}{\namepartsuffix}}%
+\or
+  \usebibmacro{name:last}{#1}{\namepartfamily}{\namepartgiven}{\namepartprefix}{\namepartsuffix}%
+\fi
+\usebibmacro{name:andothers}}
 
+% \DeclareNameFormat{fullauthornames}{%
+%   % name format that prints the list of authors with full author names
+%   \ifcase\value{uniquename}%
+%     \usebibmacro{name:first-last}{#1}{#3}{#5}{#7}%
+%     \or
+%     \ifuseprefix
+%         {\usebibmacro{name:first-last}{#1}{#3}{#5}{#8}}
+%         {\usebibmacro{name:first-last}{#1}{#3}{#6}{#8}}%
+%   \or
+%   \usebibmacro{name:first-last}{#1}{#3}{#5}{#7}%
+%   \fi
+%   \usebibmacro{name:andothers}}
 \DeclareNameFormat{fullauthornames}{%
   % name format that prints the list of authors with full author names
   \ifcase\value{uniquename}%
-    \usebibmacro{name:first-last}{#1}{#3}{#5}{#7}%
-    \or
-    \ifuseprefix
-        {\usebibmacro{name:first-last}{#1}{#3}{#5}{#8}}
-        {\usebibmacro{name:first-last}{#1}{#3}{#6}{#8}}%
+    \usebibmacro{name:first-last}{#1}{\namepartgiven}{\namepartfamily}{\namepartprefix}{\namepartsuffix}%
   \or
-  \usebibmacro{name:first-last}{#1}{#3}{#5}{#7}%
+    \ifuseprefix
+      {\usebibmacro{name:first-last}{#1}{\namepartgiven}{\namepartfamily}{\namepartprefix}{\namepartsuffix}}
+      {\usebibmacro{name:first-last}{#1}{\namepartgiven}{\namepartfamily}{\namepartfamily}{\namepartsuffix}}%
+  \or
+    \usebibmacro{name:first-last}{#1}{\namepartgiven}{\namepartfamily}{\namepartprefix}{\namepartsuffix}%
   \fi
   \usebibmacro{name:andothers}}
 

@@ -154,13 +154,13 @@
 %   \usebibmacro{name:andothers}}
 \DeclareNameFormat{authorswithinitials}{%
   \ifcase\value{uniquename}%
-    \usebibmacro{name:first-last}{#1}{\namepartgiven}{\namepartprefix}{\namepartfamily}{\namepartsuffix}%
+    \usebibmacro{name:first-last}{#1}{\namepartgiven}{\namepartgiveni}{\namepartprefix}{\namepartsuffix}%
   \or
     \ifuseprefix
-      {\usebibmacro{name:first-last}{#1}{\namepartgiven}{\namepartprefix}{\namepartfamily}{\namepartsuffix}}
-      {\usebibmacro{name:first-last}{#1}{\namepartgiven}{\namepartfamily}{\namepartprefix}{\namepartsuffix}}%
+      {\usebibmacro{name:first-last}{#1}{\namepartgiven}{\namepartgiveni}{\namepartprefix}{\namepartsuffixi}}
+      {\usebibmacro{name:first-last}{#1}{\namepartgiven}{\namepartgiveni}{\namepartprefixi}{\namepartsuffixi}}%
   \or
-    \usebibmacro{name:first-last}{#1}{\namepartgiven}{\namepartprefix}{\namepartfamily}{\namepartsuffix}%
+    \usebibmacro{name:first-last}{#1}{\namepartgiven}{\namepartgiveni}{\namepartprefix}{\namepartsuffix}%
   \fi
   \usebibmacro{name:andothers}}
 
@@ -179,13 +179,13 @@
 \DeclareNameFormat{authorlastnames}{%
 % name format that prints the list of author last names
 \ifcase\value{uniquename}%
-  \usebibmacro{name:last}{#1}{\namepartfamily}{\namepartgiven}{\namepartprefix}{\namepartsuffix}%
+  \usebibmacro{name:last}{#1}{\namepartfamily}{\namepartgiveni}{\namepartprefix}{\namepartsuffix}%
 \or
   \ifuseprefix
-    {\usebibmacro{name:last}{#1}{\namepartfamily}{\namepartgiven}{\namepartprefix}{\namepartsuffix}}
-    {\usebibmacro{name:last}{#1}{\namepartfamily}{\namepartgiven}{\namepartfamily}{\namepartsuffix}}%
+    {\usebibmacro{name:last}{#1}{\namepartfamily}{\namepartgiveni}{\namepartprefix}{\namepartsuffixi}}
+    {\usebibmacro{name:last}{#1}{\namepartfamily}{\namepartgiveni}{\namepartprefixi}{\namepartsuffixi}}%
 \or
-  \usebibmacro{name:last}{#1}{\namepartfamily}{\namepartgiven}{\namepartprefix}{\namepartsuffix}%
+  \usebibmacro{name:last}{#1}{\namepartfamily}{\namepartgiveni}{\namepartprefix}{\namepartsuffix}%
 \fi
 \usebibmacro{name:andothers}}
 
@@ -207,8 +207,8 @@
     \usebibmacro{name:first-last}{#1}{\namepartgiven}{\namepartfamily}{\namepartprefix}{\namepartsuffix}%
   \or
     \ifuseprefix
-      {\usebibmacro{name:first-last}{#1}{\namepartgiven}{\namepartfamily}{\namepartprefix}{\namepartsuffix}}
-      {\usebibmacro{name:first-last}{#1}{\namepartgiven}{\namepartfamily}{\namepartfamily}{\namepartsuffix}}%
+      {\usebibmacro{name:first-last}{#1}{\namepartgiven}{\namepartfamily}{\namepartprefix}{\namepartsuffixi}}
+      {\usebibmacro{name:first-last}{#1}{\namepartgiven}{\namepartfamily}{\namepartprefixi}{\namepartsuffixi}}%
   \or
     \usebibmacro{name:first-last}{#1}{\namepartgiven}{\namepartfamily}{\namepartprefix}{\namepartsuffix}%
   \fi

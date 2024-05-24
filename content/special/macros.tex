@@ -179,13 +179,13 @@
 \DeclareNameFormat{authorlastnames}{%
 % name format that prints the list of author last names
 \ifcase\value{uniquename}%
-  \usebibmacro{name:family}{}{\namepartfamily}{\namepartgiveni}{\namepartprefix}{\namepartsuffix}%
+  \usebibmacro{name:family}{\namepartfamily}{\namepartgiveni}{\namepartprefix}{\namepartsuffix}%
 \or
   \ifuseprefix
-    {\usebibmacro{name:family}{}{\namepartfamily}{\namepartgiveni}{\namepartprefix}{\namepartsuffixi}}
-    {\usebibmacro{name:family}{}{\namepartfamily}{\namepartgiveni}{\namepartprefixi}{\namepartsuffixi}}%
+    {\usebibmacro{name:family}{\namepartfamily}{\namepartgiveni}{\namepartprefix}{\namepartsuffixi}}
+    {\usebibmacro{name:family}{\namepartfamily}{\namepartgiveni}{\namepartprefixi}{\namepartsuffixi}}%
 \or
-  \usebibmacro{name:family}{}{\namepartfamily}{\namepartgiveni}{\namepartprefix}{\namepartsuffix}%
+  \usebibmacro{name:family}{\namepartfamily}{\namepartgiveni}{\namepartprefix}{\namepartsuffix}%
 \fi
 \usebibmacro{name:andothers}}
 
@@ -291,7 +291,7 @@
     \label{#1}%
           {\bfseries\normalsize\papertitle{#1}}\\
           \normalsize\paperauthor{\citefullauthornames{#1}}
-  \end{minipage}\vspace{1mm}\\\nopagebreak%
+  \end{minipage}\vspace{1.5mm}\\\nopagebreak%
   \noindent{\small\input{auto/abstracts/#1}}\par}
 
 % insert an abstract into a list of abstracts
@@ -306,9 +306,10 @@
     \label{#5}%
       %\rule{\linewidth}{1pt}\linebreak
           {\bfseries\normalsize\papertitle{#5}} \\
-          \hfill\normalsize\paperauthor{\citefullauthornames{#5}}
+          \hfill\normalsize\paperauthor{\citefullauthornames{#5}} \\
+          {\small #2}
 %      {\small #1 #2 --- #4}\vspace{.5ex}\\
-          \hfill {\small #2}
+          %\hfill {\small #2}
 %    \parbox[t]{.8\linewidth}{\centering
 %      {\bfseries\papertitle{\citetitle{#5}}}\linebreak
 %      \paperauthor{\citefullauthornames{#5}}}%
@@ -320,7 +321,7 @@
   %%   {\bfseries \citetitle{#5}} \vspace{.5em}\linebreak
   %%   {\itshape    \citefullauthornames{#5}}%\vspace{.5em}\linebreak	% Reduce space between header and abstract - B
   %%   %#1 #2 --- #4\linebreak 						% Redundant info? - B
-  \end{minipage}\vspace{1mm}\\\nopagebreak%
+  \end{minipage}\vspace{1.5mm}\\\nopagebreak%
   \noindent{\small\input{auto/abstracts/#5}}\par}
 
 \newcommand{\TutorialCoverPage}[4]{%
@@ -513,19 +514,20 @@ Human Language Technologies}\par
       \hline\hline}
 {\end{tabular}\end{center}}
 
-\newenvironment{ThreeSessionOverview}[5]{
-  \section[#1]{#1 Overview -- #2}
-  \setheaders{#1}{#2}
+\newenvironment{ThreeSessionOverview}[6]{
+\bgroup
+\renewcommand{\arraystretch}{1.4}
   \begin{center}
     \righthyphenmin2
     \sloppy
     \begin{tabular}{|>{\RaggedRight}p{1.3in}|>{\RaggedRight}p{1.3in}|>{\RaggedRight}p{1.3in}|}
       \hline
-      \bf Track A & \bf Track B & \bf Track C \\\hline
-      \it #3 & \it #4 & \it #5 \\
-      \TrackALoc & \TrackBLoc & \TrackCLoc \\
+      \bf #1 & \bf #2 & \bf #3 \\\hline
+      \it #4 & \it #5 & \it #6 \\
       \hline\hline}
-{\hline\end{tabular}\end{center}}
+{\hline\end{tabular}\end{center}
+\egroup
+}
 
 \newcommand{\daydate}{DAY, DATE}
 \newcommand{\daydateyear}{DAY, DATE, YEAR}

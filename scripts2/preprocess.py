@@ -475,7 +475,7 @@ def generate_day2(**inputs):
         [["14:00", "15:00"], "{\\bf Session G: Business Meeting}", "Don Alberto 2--3"],
         [["15:00", "15:30"], "{\\it Break}", ""],
         [["15:30", "17:00"], "{\\bf Session H: Poster Session 5: Industry + SRW + Findings}", "Do\~na Adelita"],
-        [["19:00", "22:00"], "{\\bf Gala Dinner}", "Don Alberto"],
+        [["19:00", "22:00"], "{\\bf Social Event Dinner}", "Don Alberto"],
     ]
     generate_overview(overview, Path("auto/papers/Tuesday-overview.tex"), **inputs)
     generate_session(session_e, inputs, "E", "09:00")
@@ -545,6 +545,21 @@ def generate_mexican_nlp(**inputs):
     generate_overview(overview, Path("auto/mexican_nlp/Saturday-overview.tex"), **inputs)
 
 
+def generate_tutorial(**inputs):
+    overview = [
+        [["08:30", "16:30"], "Registration", "Diego Foyer"],
+        [["09:00", "10:30"], "{\\bf Tutorials 1, 2, 3}", ""],
+        [["10:30", "11:00"], "{\\it Break}", ""],
+        [["09:00", "10:30"], "{\\bf Tutorials 1, 2, 3 {\\it (cont'd)}}", ""],
+        [["12:30", "14:00"], "{\\it Lunch break}", ""],
+        [["14:00", "15:30"], "{\\bf Tutorials 4, 5, 6}", ""],
+        [["15:30", "16:00"], "{\\it Break}", ""],
+        [["16:00", "17:30"], "{\\bf Tutorials 4, 5, 6 {\\it (cont'd)}}", ""],
+        [["19:00", "21:30"], "{\\bf Welcome Reception}", "Don Alberto"],
+    ]
+    generate_overview(overview, Path("content/tutorials/tutorials-overview.tex"), **inputs)
+
+
 def generate_bib(x):
     out = []
     out.append("@INPROCEEDINGS{" + x["id"] + ",")
@@ -583,6 +598,7 @@ def main():
     inputs = preprocess()
     generate_all_bib_and_abstracts(**inputs)
     generate_mexican_nlp(**inputs)
+    generate_tutorial(**inputs)
     generate_day1(**inputs)
     generate_day2(**inputs)
     generate_day3(**inputs)

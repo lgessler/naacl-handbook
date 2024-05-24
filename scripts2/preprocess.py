@@ -513,6 +513,36 @@ def generate_day3(**inputs):
     generate_session(session_j, inputs, "J", "11:00")
 
 
+def generate_mexican_nlp(**inputs):
+    overview = [
+        [["08:20", "08:50"], "Registration", "Do\~na Adelita"],
+        [["08:50", "09:00"], "{\\bf Opening Session}", "Do\~na Adelita"],
+        [["09:00", "10:00"], "{\\bf Keynote: Diyi Yang}", "Do\~na Adelita"],
+        [["10:00", "11:00"], "{\\bf Keynote: Alexis Palmer}", "Do\~na Adelita"],
+        [["11:00", "11:30"], "{\\it Break}", ""],
+        [["11:30", "13:00"], "{\\bf Panel A}", "Do\~na Adelita"],
+        [["12:30", "14:00"], "{\\it Lunch break}", ""],
+        [["14:30", "15:30"], "{\\bf Keynote: Umut Pajaro Velasquez}", "Do\~na Adelita"],
+        [["15:30", "16:30"], "{\\bf Keynote: Veronica Perez Rosas}", "Do\~na Adelita"],
+        [["16:30", "17:00"], "{\\it Break}", ""],
+        [["17:00", "18:30"], "{\\bf Panel B}", "Do\~na Adelita"],
+    ]
+    generate_overview(overview, Path("auto/mexican_nlp/Friday-overview.tex"), **inputs)
+    overview = [
+        [["09:00", "10:30"], "{\\bf Tutorial A}", "Do\~na Adelita"],
+        [["09:00", "10:30"], "{\\bf Tutorial B}", "Don Juli\\'an"],
+        [["10:30", "11:00"], "{\\it Break}", ""],
+        [["11:00", "12:30"], "{\\bf Tutorial A}", "Do\~na Adelita"],
+        [["11:00", "12:30"], "{\\bf Tutorial B}", "Don Jul\\'ian"],
+        [["12:30", "14:00"], "{\\it Lunch break}", ""],
+        [["14:00", "16:00"], "{\\bf Tutorial C}", "Do\~na Adelita"],
+        [["14:00", "16:00"], "{\\bf Tutorial D}", "Don Juli\\'an"],
+        [["16:00", "16:15"], "{\\it Break}", ""],
+        [["16:15", "18:30"], "{\\bf Panel C}", "Do\~na Adelita"],
+    ]
+    generate_overview(overview, Path("auto/mexican_nlp/Saturday-overview.tex"), **inputs)
+
+
 def generate_bib(x):
     out = []
     out.append("@INPROCEEDINGS{" + x["id"] + ",")
@@ -550,6 +580,7 @@ def generate_all_bib_and_abstracts(**inputs):
 def main():
     inputs = preprocess()
     generate_all_bib_and_abstracts(**inputs)
+    generate_mexican_nlp(**inputs)
     generate_day1(**inputs)
     generate_day2(**inputs)
     generate_day3(**inputs)

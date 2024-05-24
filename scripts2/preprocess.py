@@ -26,6 +26,7 @@ LATEX_ESCAPE = [
     [r'>', r'\\textgreater{}'],
     [r"≈", r'$\\approx$'],
     [r"∼", r'$\\sim$'],
+    [r'\\textbackslash{}\\%', r"\\%"],
 ]
 ALWAYS_ESCAPE = [
     ["", "'"],

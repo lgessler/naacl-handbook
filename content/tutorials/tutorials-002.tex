@@ -1,31 +1,20 @@
-\begin{bio}
-{\bfseries Chris Callison-Burch} is the Aravind K Joshi term assistant
-professor in the Computer and Information Science Department at the
-University of Pennsylvania. Before joining Penn, he was a research
-faculty member at the Center for Language and Speech Processing at
-Johns Hopkins University for 6 years. He was the Chair of the
-Executive Board of the North American chapter of the Association for
-Computational Linguistics (NAACL) from 2011-2013, and he has served on
-the editorial boards of the journals Transactions of the ACL (TACL)
-and Computational Linguistics. He is a Sloan Research Fellow, and he
-has received faculty research awards from Google, Microsoft and
-Facebook in addition to funding from DARPA and the NSF. Chris teaches
-a semester-long course on Crowdsourcing at Penn
-(\url{http://crowdsourcing-class.org/}).
+%\begin{bio}
+%
+%\end{bio}
 
-{\bfseries Lyle Ungar} is a Professor of Computer and Information Science at the University of Pennsylvania. He also holds appointments in several other departments in the Engineering, Medicine, and Business Schools. Dr. Ungar received a B.S. from Stanford University and a Ph.D. from M.I.T. He has published over 200 articles and is co-inventor on eight patents. His current research includes machine learning, data mining, and text mining, and uses social media to better understand the drivers of physical and mental well-being. Lyle’s research group collects MTurk crowdsourced labels on natural language data such Facebook posts and tweets, which they use for a variety of NLP and psychology studies. Lyle (with collaborators) has given highly successful tutorials on information extraction, sentiment analysis, and spectral methods for NLP at conferences including NAACL, KDD, SIGIR, ICWSM, CIKM, and AAAI. He and his student gave a tutorial on crowdsourcing last year at the Joint Statistical Meetings (JSM).
-
-{\bfseries Ellie Pavlick} is a Ph.D. student at the University of Pennsylvania. Ellie received her B.A. in economics from the Johns Hopkins University, where she began working with Dr. Chris Callison-Burch on using crowdsourcing to create low-cost training data for statistical machine translation by hiring non-professional translators and post-editors. Her current research interests include entailment and paraphrase recognition, for which she has looked at using MTurk to provide more difficult linguistic annotations such as discriminating between fine-grained lexical entailment relations and identifying missing lexical triggers in FrameNet. Ellie TAed and helped design the curriculum for the Crowdsourcing and Human Computation course at Penn.
-\end{bio}
-
+\clearpage
 \begin{tutorial}
-  {Crowdsourcing for NLP}
-  {tutorial-final-021}
-  {\daydateyear, \tutorialmorningtime}
-  {\TutLocB}
+  {Combating Security and Privacy Issues in the Era of Large Language Models}
+  {tutorial-2}
+  {\daydateyear, 09:00 -- 12:30}
+  {Don Alberto 4}
 
-Crowdsourced applications to scientific problems is a hot research area, with over 10,000 publications in the past five years. Platforms such as Amazon’s Mechanical Turk and CrowdFlower provide researchers with easy access to large numbers of workers. The crowd’s vast supply of inexpensive, intelligent labor allows people to attack problems that were previously impractical and gives potential for detailed scientific inquiry of social, psychological, economic, and linguistic phenomena via massive sample sizes of human annotated data. We introduce crowdsourcing and describe how it is being used in both industry and academia. Crowdsourcing is valuable to computational linguists both (a) as a source of labeled training data for use in machine learning and (b) as a means of collecting computational social science data that link language use to underlying beliefs and behavior. We present case studies for both categories: (a) collecting labeled data for use in natural language processing tasks such as word sense disambiguation and machine translation and (b) collecting experimental data in the context of psychology; e.g. finding how word use varies with age, sex, personality, health, and happiness.
+Large Language Models have received wide attention from the society. These models have not only shown promising results across NLP tasks, but also emerged to be the backbone of many intelligent systems for web search, education, healthcare, e-commerce and software development. From the societal impact perspective, LLMs like GPT-4 and Chat-GPT have shown significant potential in supporting decision making in many daily-life tasks.
 
-We will also cover tools and techniques for crowdsourcing. Effectively collecting crowdsourced data requires careful attention to the collection process, through selection of appropriately qualified workers, giving clear instructions that are understandable to non-experts, and performing quality control on the results to eliminate spammers who complete tasks randomly or carelessly in order to collect the small financial reward. We will introduce different crowdsourcing platforms, review privacy and institutional review board issues, and provide rules of thumb for cost and time estimates. Crowdsourced data also has a particular structure that raises issues in statistical analysis; we describe some of the key methods to address these issues.
+Despite the success, the increasingly scaled sizes of LLMs, as well as their growing deployments in systems, services and scientific studies, are bringing along more and more emergent issues in security and privacy. On the one hand, since LLMs are more potent of memorizing vast amount of information, they can definitely memorize well any kind of training data that may lead to adverse behaviors, leading to backdoors that may be leveraged by adversaries to control or hack any high-stake systems that are built on top of the LLMs. In this context, LLMs may also memorize personal and confidential information that exist in corpora and the RLHF process, therefore being prone to various privacy risks including membership inference, training data extraction, and jailbreaking attacks. On the other hand, the wide usage and adaption of LLMs also challenge the copyright protection of models and their outputs. For example, while some models restrict commercial uses or restrict derivatives of license, it is hard to ensure that downstream developers finetuning these models will comply with the licenses. It is also hard to identify improper usage of LLM generated outputs especially in scenarios like peer review and lawsuits where model generated content should be strictly controlled. Moreover, while a number of LLMs are deployed as services, privacy protection of information in both user inputs and model decisions represents another challenge, particularly for healthcare and fintech services.
+
+This tutorial presents a comprehensive introduction of frontier research on emergent security and privacy issues in the era of LLMs. In particular, we try to answer the following questions: (i) How do we unravel the adversarial threats in the training time of LLMs, especially those that may exist in recent paradigms of instruction tuning and RLHF processes? (ii) How do we guard the LLMs against malicious attacks in inference time, such as attacks based on backdoors and jailbreaking? (iii) How do we addressing the privacy risks of LLMs, such as ensuring privacy protection of user information and LLM decisions? (iv) How do we protect the copyright of an LLM? (v) How do we detect and prevent cases where personal or confidential information is memorized during LLM training and leaked during inference? (vi) How should we control against improper usage of LLM-generated content?
+
+By addressing these critical questions, we believe it is necessary to present a timely tutorial to comprehensively summarize the new frontiers in security and privacy research in NLP, and point out the emerging challenges that deserve further attention of our community. Participants will learn about recent trends and emerging challenges in this topic, representative tools and learning resources to obtain ready-to-use technologies, and how related technologies will realize more responsible usage of LLMs in end-user systems.
 
 \end{tutorial}

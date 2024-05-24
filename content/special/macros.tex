@@ -415,6 +415,40 @@ Human Language Technologies}\par
 {\end{SingleTrackSchedule}\end{center}}
 
 %% WORKSHOP SCHEDULE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{wsschedulenolist}[6]{%
+  % #1 workshop title
+  % #2 workshop number
+  % #3 workshop label
+  % #4 workshop paper ID
+  % #5 workshop location
+  % #6 url
+  %\addcontentsline{toc}{section}{{{\bfseries W~#2:} #4}}
+
+  %\addcontentsline{toc}{section}{{{\bfseries W~#2:}
+  %    \ifthenelse{\equal{#1}{none}}{#4}{#1}}}
+
+  % For workshops numbered 0, don't prepend W0 on the contents page
+  \clearpage
+  \ifthenelse{\equal{#2}{0}}
+             {\section{\textbf{#1}}}
+             {\section[{\bfseries W#2:} #1]{{\bfseries Workshop #2:} #1}}
+             %% {{\addcontentsline{toc}{section}{{#1}}}}
+             %% {{\addcontentsline{toc}{section}{{{\bfseries W#2:} #1}}}}
+
+  \markboth{}{}
+  \label{#3}
+  \begin{center}
+%    {\huge{\Large Workshop #2:}\vspace{.5ex}\\
+    %% {\Large
+    %%   \ifthenelse{\equal{#2}{0}}{{}}{{\huge{Workshop #2:\\\vspace{.5ex}}}}
+    %%   #1\par}
+    {\ifthenelse{\equal{#4}{0}}{{}}{{Organizers: \paperauthor{\citefullauthornames{#4}}}\par}}
+    {\large #5\vspace{1ex}}\\
+    {\url{#6} \vspace{2em}}
+    %% {\huge Workshop Program\vspace{1ex}}
+  \end{center}
+  \markright{{\bfseries W~#2:} #1}{}%
+}{}
 
 %\newlength{\wsscheduleindentation}
 %\newlength{\wsschedulelabelwidth}

@@ -357,12 +357,13 @@ def generate_session_oral_details(session, inputs, key, times):
     venues = inputs["session_venues"]
     orals = inputs["orals"]
     output = r"\newpage" + "\n"
-    output += fr"\section*{{Session {key}}}" + "\n"
+    #output += fr"\section*{{Session {key}}}" + "\n"
     for i in range(1, 6):
         title = session[i]
         venue = venues[i]
-        output += rf"{{\bf\large Session {key}{i}: {title}}} \\" + "\n"
+        output += rf"\section{{Session {key}{i}: {title}}}" + "\n"
         output += rf"{{\bf {venue}}}\par" + "\n"
+        output += r"\vspace{1em}"
         k2 = f"{key}{i}"
         if k2 in orals:
             for j, paper in enumerate(orals[k2]):
@@ -377,8 +378,9 @@ def generate_session_poster_details(inputs, inputs_key, key, time):
     if ck not in inputs[inputs_key]:
         return ""
     stype = "Poster" if inputs_key == "posters" else "Demo"
-    output = rf"""\section{{{stype} Session {ck}}}
-\setheaders{{{stype} Session {ck}}}{{\daydateyear}}
+    name = fr"Session {ck}: {stype}s"
+    output = rf"""\section{{{name}}}
+\setheaders{{{name}}}{{\daydateyear}}
 {{\large Time: {time}\hfill Location: {venue}}}\\
 \\
 """

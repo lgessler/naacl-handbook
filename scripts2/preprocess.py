@@ -596,12 +596,25 @@ def generate_all_bib_and_abstracts(**inputs):
 
 def main():
     inputs = preprocess()
+
+    # virtual
+    inputs["physical"] = False
     generate_all_bib_and_abstracts(**inputs)
     generate_mexican_nlp(**inputs)
     generate_tutorial(**inputs)
     generate_day1(**inputs)
     generate_day2(**inputs)
     generate_day3(**inputs)
+
+    # physical
+    inputs["physical"] = True
+    generate_all_bib_and_abstracts(**inputs)
+    generate_mexican_nlp(**inputs)
+    generate_tutorial(**inputs)
+    generate_day1(**inputs)
+    generate_day2(**inputs)
+    generate_day3(**inputs)
+
 
 
 

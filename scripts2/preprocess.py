@@ -283,7 +283,10 @@ def generate_overview(overview, out_path, **inputs):
 
     for (bt, et), title, loc_or_session in overview:
         l = ["  "]
-        l.append(f"{bt} & -- & {et} &\n  ")
+        if bt == "" and et == "":
+            l.append(" & & & \n ")
+        else:
+            l.append(f"{bt} & -- & {et} &\n  ")
         if isinstance(loc_or_session, dict):
             l.append(r"\begin{tabular}{|p{1.65in}|p{1.65in}|}" + "\n")
             l.append(r"    \multicolumn{2}{l}{\bfseries{" + title + r"}}\\\hline" + "\n")
@@ -546,16 +549,52 @@ def generate_mexican_nlp(**inputs):
 
 
 def generate_tutorial(**inputs):
+    tut1 = (
+        r"\makecell[l]{{\bf Catch Me If You GPT: Tutorial on Deepfake Texts} \\"
+        r"Adaku Uchendu, Saranya Venkatraman, Thai Le, and \\ Dongwon Lee}"
+    )
+    tut2 = (
+        r"\makecell[l]{\\ {\bf Combating Security and Privacy Issues in the Era} \\ {\bf of Large Language Models} \\"
+        r"Muhao Chen, Chaowei Xiao, Huan Sun, Lei Li, \\ Leon Derczynski and Anima Anandkumar}"
+    )
+    tut3 = (
+        r"\makecell[l]{\\ {\bf Explanation in the Era of Large Language Models} \\"
+        r"Zining Zhu, Hanjie Chen, Xi Ye, Chenhao Tan, Ana Marasovic, \\ Sarah Wiegreffe and Qing Lyu}"
+    )
+
+    tut4 = (
+        r"\makecell[l]{{\bf From Text to Context: Contextualizing Language with} \\ {\bf Humans, Groups, and Communities for Socially Aware NLP} \\"
+        r"Adithya V Ganesan, Siddharth Mangalik, Vasudha Varadarajan, \\ Nikita Soni, Swanie Juhng, Jo\~ao Sedoc, H.~Andrew Schwartz, \\ Salvatore Giorgi and Ryan Boyd}"
+    )
+    tut5 = (
+        r"\makecell[l]{\\ {\bf Human-AI Interaction in the Age of LLMs} \\"
+        r"Diyi Yang, Tongshuang Wu and Marti A. Hearst}"
+    )
+    tut6 = (
+        r"\makecell[l]{\\ {\bf Spatial and Temporal Language Understanding:} \\ {\bf Representation, Reasoning, and Grounding} \\"
+        r"Parisa Kordjamshidi, Marie-Francine Moens, \\ James Pustejovsky and Qiang Ning}"
+    )
+
+    reception_detail = (
+        r"\begin{tabular}{lcl}"
+        r"18:30 &--& Check-in, drink tickets distributed \\"
+        r"19:00 &--& Doors open, appetizers served \\"
+        r"21:00 &--& Last call \\"
+        r"\end{tabular}"
+    )
     overview = [
         [["08:30", "16:30"], "Registration", "Diego Foyer"],
-        [["09:00", "10:30"], "{\\bf Tutorials 1, 2, 3}", ""],
-        [["10:30", "11:00"], "{\\it Break}", ""],
-        [["09:00", "10:30"], "{\\bf Tutorials 1, 2, 3 {\\it (cont'd)}}", ""],
+        [["09:00", "12:30"], "{\\bf Tutorials (Level 4)}", ""],
+        [["", ""], tut1, "Do\\~na Adelita"],
+        [["", ""], tut2, "Don Alberto 4"],
+        [["", ""], tut3, "Don Alberto 3"],
         [["12:30", "14:00"], "{\\it Lunch break}", ""],
-        [["14:00", "15:30"], "{\\bf Tutorials 4, 5, 6}", ""],
-        [["15:30", "16:00"], "{\\it Break}", ""],
-        [["16:00", "17:30"], "{\\bf Tutorials 4, 5, 6 {\\it (cont'd)}}", ""],
+        [["14:00", "17:30"], "{\\bf Tutorials (Level 4)}", ""],
+        [["", ""], tut4, "Do\\~na Adelita"],
+        [["", ""], tut5, "Don Alberto 2"],
+        [["", ""], tut6, "Don Alberto 3"],
         [["19:00", "21:30"], "{\\bf Welcome Reception}", "Don Alberto"],
+        [["", ""], reception_detail, ""],
     ]
     generate_overview(overview, Path("content/tutorials/tutorials-overview.tex"), **inputs)
 

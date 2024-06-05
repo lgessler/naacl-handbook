@@ -165,6 +165,7 @@
 
 %% VENUE INFO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{content/venue-info/venue-info}
+\clearpage
 \input{content/maps}
 
 
@@ -178,12 +179,9 @@
 %% BACK COVER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \thispagestyle{empty}
-
-\noindent NAACL gratefully acknowledges the following sponsors for
-their support:\\
-\begin{center}
-\includegraphics[width=4.5in]{content/sponsors/sponsors}
-\end{center}
+% Ensure we end on an even page
+\clearpage
+\phantom{x}
 
 %% \input{content/restaurant-summary}
 %% \includepdf[pages={1}]{content/backcover.pdf}
@@ -193,6 +191,15 @@ their support:\\
 \addcontentsline{toc}{chapter}{\protect\numberline{\thechapter}{Venue Map}}
 \setheaders{Venue Map}{Venue Map}
 \input{content/maps}
+
+
+\clearpage
+\thispagestyle{empty}
+\fancyfoot{}
+\setheaders{}{}
+\begin{center}
+  \includegraphics[width=4.2in]{content/sponsors/sponsors}
+\end{center}
 
 \end{document}
 

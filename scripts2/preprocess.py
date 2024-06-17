@@ -645,8 +645,7 @@ def main(physical):
 
 
 if __name__ == '__main__':
-    args = sys.argv[1]
     if len(sys.argv) != 2 or sys.argv[1] not in ["--physical", "--virtual"]:
-        print("Please pass exactly one argument: --physical or --virtual", sys.stderr)
+        print("Please pass exactly one argument: --physical or --virtual", file=sys.stderr)
         sys.exit(1)
     main(sys.argv[1] == "--physical")

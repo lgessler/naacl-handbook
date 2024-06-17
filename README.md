@@ -50,7 +50,8 @@ sudo tlmgr install combelow newunicodechar fncychap csquotes multirow biblatex b
 You should start by compiling the NAACL 2024 handbook to make sure everything's OK. 
 
 1. Run `python scripts2/preprocess.py --physical` (or `python scripts2/preprocess.py --virtual`) to
-   populate `auto/` with generated `.tex` sources
+   populate `auto/` with generated `.tex` sources. (These two variants overwrite each other, so be sure
+   to run the one you need before you run the next step.)
 2. Run `make` or `make -f Makefile-physical` to generate the PDF.
 
 That's it!

@@ -1,0 +1,42 @@
+# $@ the target
+# $* the matched prefix
+# $< the matched dependent
+
+# -recorder records the files opened in a file with a .fls extension. This is used to infer
+# the list of file dependencies.
+
+latex = pdflatex
+
+all: handbook_physical.pdf
+
+# In many cases, you can just run latex once to get your updates in
+handbook_physical.pdf: handbook_physical.tex handbook_physical.ind
+	${latex} handbook_physical
+	${latex} handbook_physical
+
+# Build the handbook_physical, then fix the index, run biber, and rebuild
+handbook_physical.ind: handbook_physical.dep handbook_physical.idx
+	${latex} handbook_physical
+	cat handbook_physical.idx | perl scripts/fix-index.perl > handbook_physical.idx.fixed
+	makeindex handbook_physical.idx.fixed -o handbook_physical.ind
+	biber handbook_physical
+	${latex} handbook_physical
+
+# Run latex in recorder mode to see all the files opened, use that to build a .dep file
+# which is -include'd at the end of this file. Now you have a dependency on all tex files
+# for the top-level PDF. This step has no dependency, so if you need to retrigger it, you
+# have to delete it manually.
+handbook_physical.dep:
+	${latex} -recorder handbook_physical
+	grep "INPUT.*tex$$" handbook_physical.fls | sort | uniq | perl -pe "s/INPUT /handbook_physical.pdf:/" > handbook_physical.dep
+
+.PHONY: clean handbook_physical.tex
+
+EXTENSIONS  = .ilg .ps .dvi .dep .idx .idx.fixed .ind .aux .idx.ilg .bbl .blg .bcf .toc .fls .log -blx.bib .run.xml .out
+
+clean: 
+	rm -f $(addprefix handbook_physical, ${EXTENSIONS})
+
+-include handbook_physical.dep
+
+.SECONDARY:

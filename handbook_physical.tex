@@ -1,0 +1,210 @@
+\documentclass[twoside,makeidx]{book}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{xspace}
+
+\usepackage{combelow}
+\usepackage{newunicodechar}
+\newunicodechar{ș}{\cb{s}}
+\newunicodechar{ț}{\cb{t}}
+
+%% \usepackage{fontspec,xunicode,xltxtra}
+%% \setromanfont[Mapping=tex-text]{Times}
+%% \setsansfont[Mapping=tex-text]{Lucida Grande} 
+%% \setmonofont{Courier New}
+
+\usepackage{pdfpages}
+
+% set paper size and margins; needs to be adapted for A5 ideally, we
+% should have a document class for conference handbooks where A5
+% vs. letter-halved is a class option
+\usepackage[
+  paperheight=8.5in, 
+  paperwidth=5.5in, 
+  inner=.75in,
+  outer=.5in,
+  bottom=.75in,
+  top=.75in,
+  twoside]{geometry}
+
+% Lots of macros
+\input{content/special/preamble} 
+\input{content/special/macros}    
+
+\input{content/setup/venues}    % macros for event locations
+\input{content/setup/sessions}  % session titles and venues
+
+\renewcommand{\normalsize}{\fontsize{8}{9}\selectfont}
+\renewcommand{\small}{\fontsize{7}{7}\selectfont}
+\renewcommand{\footnotesize}{\fontsize{6}{6}\selectfont}
+\renewcommand{\large}{\fontsize{10}{11}\selectfont}
+\renewcommand{\Large}{\fontsize{12}{14}\selectfont}
+\renewcommand{\huge}{\fontsize{14}{17}\selectfont}
+
+\bibliography{auto/papers/papers}
+\bibliography{content/tutorials/papers}
+\bibliography{content/workshops/papers}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%% COVER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\fancyfoot[C]{}
+\includepdf[pages={1}]{content/fmatter/cover.pdf}
+
+%% INSIDE FRONT COVER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \cleardoublepage
+% \thispagestyle{empty}
+% \vspace*{6in}
+% \noindent\emph{Cover design by Aurelia Bunescu}\\\index{Bunescu, Aurelia}
+% \noindent\emph{Handbook assembled by Matt Post}\\\index{Post, Matt}
+% \emph{Printing by Omnipress of Madison, Wisconsin}
+% 
+% \newpage
+% \cleardoublepage
+\fancyfoot[C]{\thepage}
+\frontmatter
+
+%% SPONSORS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Putting on back cover
+
+%% \addcontentsline{toc}{chapter}{Sponsorship}
+%% \thispagestyle{empty}
+%% \setheaders{}{}
+%% \input{content/sponsors/sponsors}
+
+%% TOC %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addcontentsline{toc}{chapter}{Table of Contents}
+\setcounter{tocdepth}{2}
+\tableofcontents
+\mainmatter
+\pagestyle{fancy}
+
+
+%% PREFACE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Conference Information}
+
+\input{content/fmatter/preface-chair}
+\clearpage
+\input{content/fmatter/preface-pc}
+\clearpage
+\input{content/fmatter/preface-events}
+
+\clearpage%{\thispagestyle{emptyheader}\cleardoublepage}
+\setheaders{}{}
+\input{content/fmatter/committee}
+
+%% \clearpage
+%\input{content/fmatter/sponsors}
+\clearpage%{\thispagestyle{emptyheader}\cleardoublepage}
+\setheaders{}{}
+
+\input{content/meal-info}
+\clearpage
+
+%% POLICIES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{content/anti-harassment-policy}
+\cleardoublepage
+
+\input{content/ethics-policy}
+\cleardoublepage
+
+%% VIRTUAL POSTER SESSIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \setdaydateyear{Thursday}{June 13}{2024}
+
+%% MEXICAN SUMMER SCHOOL %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \setdaydateyear{Friday}{June 14}{2024}
+% \input{content/mexican_nlp/day1}
+%
+% \setdaydateyear{Saturday}{June 15}{2024}
+% \input{content/mexican_nlp/day2}
+
+%% TUTORIALS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setdaydateyear{Sunday}{June 16}{2024}
+\input{content/tutorials/tutorials}
+
+%% Welcome reception %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% \addcontentsline{toc}{chapter}{Welcome Reception: \daydate, 6:00pm}
+\input{content/tutorials/welcome_reception}
+
+%% MAIN CONFERENCE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setdaydateyear{Monday}{June 17}{2024}
+\input{content/day1/day1_physical}
+
+\setdaydateyear{Tuesday}{June 18}{2024}
+\input{content/day2/day2_physical}
+
+\setdaydateyear{Wednesday}{June 19}{2024}
+\input{content/day3/day3_physical}
+
+%% WORKSHOPS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setdaydateyear{Thursday--Friday}{June 20--21}{2024}
+\input{content/workshops/workshops}
+
+%% LOCAL GUIDE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\setheaders{Local Guide}{Local Guide}
+%\input{content/local-guide/local-guide.tex}
+
+
+%% MISC %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \addcontentsline{toc}{chapter}{Author Index}
+% \setheaders{Author Index}{Author Index}
+
+% \printindex
+
+%% LOCAL GUIDE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setheaders{Local Guide}{Local Guide}
+\input{content/local-guide/local-guide}
+
+%% VENUE INFO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{content/venue-info/venue-info}
+\clearpage
+\input{content/maps}
+
+%% ADS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+%\addcontentsline{toc}{chapter}{Sponsorship}
+\setheaders{}{}
+\input{content/ads/ads}
+
+%% BACK COVER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\thispagestyle{empty}
+% Ensure we end on an even page
+\clearpage
+\phantom{x}
+
+%% \input{content/restaurant-summary}
+%% \includepdf[pages={1}]{content/backcover.pdf}
+
+%% Map
+\clearpage
+\addtocounter{chapter}{1}
+\addcontentsline{toc}{chapter}{\protect\numberline{\thechapter}{Venue Map}}
+\setheaders{Venue Map}{Venue Map}
+\input{content/maps}
+
+\clearpage
+\thispagestyle{empty}
+\fancyfoot{}
+\setheaders{}{}
+\begin{center}
+\includegraphics[width=4.2in]{content/sponsors/sponsors}
+\end{center}
+
+
+\end{document}
+

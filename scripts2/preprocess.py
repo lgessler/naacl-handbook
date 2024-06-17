@@ -633,20 +633,9 @@ def generate_all_bib_and_abstracts(**inputs):
         f.write(s)
 
 
-def main():
+def main(physical):
     inputs = preprocess()
-
-    # virtual
-    inputs["physical"] = False
-    generate_all_bib_and_abstracts(**inputs)
-    generate_mexican_nlp(**inputs)
-    generate_tutorial(**inputs)
-    generate_day1(**inputs)
-    generate_day2(**inputs)
-    generate_day3(**inputs)
-
-    # physical
-    inputs["physical"] = True
+    inputs["physical"] = physical
     generate_all_bib_and_abstracts(**inputs)
     generate_mexican_nlp(**inputs)
     generate_tutorial(**inputs)
@@ -655,5 +644,9 @@ def main():
     generate_day3(**inputs)
 
 
-
-
+if __name__ == '__main__':
+    args = sys.argv[1]
+    if len(sys.argv) != 2 or sys.argv[1] not in ["--physical", "--virtual"]:
+        print("Please pass exactly one argument: --physical or --virtual", sys.stderr)
+        sys.exit(1)
+    main(sys.argv[1] == "--physical")

@@ -136,15 +136,15 @@ def read_yaml(file_path):
 
 def normalize_id(s):
     if m := re.match(r"(\d+)\sIND", s, re.IGNORECASE):
-        return "ind-" + m.groups()[0]
+        return "ind-" + str(int(m.groups()[0]))
     elif m := re.match(r"(\d+)\sTACL", s, re.IGNORECASE):
-        return "tacl-" + m.groups()[0]
+        return "tacl-" + str(int(m.groups()[0]))
     elif m := re.match(r"(\d+)\sCL", s, re.IGNORECASE):
-        return "cl-" + m.groups()[0]
+        return "cl-" + str(int(m.groups()[0]))
     elif m := re.match(r"(\d+)\sSRW", s, re.IGNORECASE):
-        return "srw-" + m.groups()[0]
+        return "srw-" + str(int(m.groups()[0]))
     elif m := re.match(r"(\d+)\sDEMO", s, re.IGNORECASE):
-        return "demo-" + m.groups()[0]
+        return "demo-" + str(int(m.groups()[0]))
     return s
 
 
@@ -197,7 +197,6 @@ def add_order_info(main_program):
         else:
             x["Order"] = "999"
 
-
 def clean_main_program(main_program, all_paper_meta):
     main_program = [
         x for x in main_program
@@ -211,9 +210,10 @@ def clean_main_program(main_program, all_paper_meta):
         replace_authors_and_abstract(x, all_paper_meta)
         x["Session"] = (
             x["Session"]
+            .replace("ORAL", "Oral")
             .replace("Oral ", "Orals ")
             .replace("Poster ", "Posters ")
-        )
+        ).strip()
         if x["Session"] in ["I6", "B6"]:
             x["Session"] = x["Format"] + "s " + x["Session"]
         clean_author_errors(x)
